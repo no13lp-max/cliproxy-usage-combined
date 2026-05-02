@@ -32,7 +32,9 @@ cd /CLIProxyAPI
 ./CLIProxyAPI -config /tmp/cliproxy-config.yaml &
 cliproxy_pid="$!"
 
-/opt/cpa-usage-keeper/cpa-usage-keeper &
+echo "starting Usage Keeper on APP_PORT=${APP_PORT} APP_BASE_PATH=${APP_BASE_PATH} USAGE_SYNC_MODE=${USAGE_SYNC_MODE}"
+cd /opt/cpa-usage-keeper
+./cpa-usage-keeper &
 keeper_pid="$!"
 
 nginx -g 'daemon off;' &
